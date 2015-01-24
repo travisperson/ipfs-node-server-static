@@ -4,7 +4,7 @@ IPFS Middleware
 Currently only allows no mount point
 
 Express
-```
+```javascript
 var ipfs_static = require('./')('localhost', 5001)
 
 var express = require('express')
@@ -27,7 +27,7 @@ var server = app.listen(3000, function () {
 ```
 
 Stock Http
-```
+```javascript
 var ipfs_static = require('./')('localhost', 5001)
 
 var http = require('http')
