@@ -1,0 +1,23 @@
+{
+  "name": "ipfs-node-server-static",
+  "version": "1.0.0",
+  "description": "Static file server middleware for ipfs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/travisperson/ipfs-node-server-static.git"
+  },
+  "author": "Travis Person <travis.person@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/travisperson/ipfs-node-server-static/issues"
+  },
+  "homepage": "https://github.com/travisperson/ipfs-node-server-static",
+  "dependencies": {
+    "ipfs-api": "^1.0.0",
+    "utils-merge": "^1.0.0"
+  }
+}
