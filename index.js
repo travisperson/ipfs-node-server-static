@@ -5,7 +5,7 @@ var merge = require('utils-merge')
 var path = require('path')
 
 exports = module.exports = function serveStatic(host, port, options) {
-
+	console.log("Setup")
 	if (!host || !port) {
 		throw new TypeError('host and port required')
 	}
@@ -34,7 +34,7 @@ exports = module.exports = function serveStatic(host, port, options) {
 		if (p[0].length == 0) {
 			p.shift()
 		}
-		
+
 		if (p[0] != "ipfs" || p[1].length < 3) {
 			return next();
 		}
@@ -42,8 +42,6 @@ exports = module.exports = function serveStatic(host, port, options) {
 		if (p[0] == "ipfs") {
 			ipfs_local.cat(p[1], function(err, data) {
 				if(err) {
-					res.writeHead(404)
-					res.end()
 					return next()
 				}
 
@@ -52,7 +50,6 @@ exports = module.exports = function serveStatic(host, port, options) {
 				} else {
 					res.write(data)
 				}
-				next() 
 			})
 		}
 	}
