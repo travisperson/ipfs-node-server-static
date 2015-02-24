@@ -38,7 +38,7 @@ exports = module.exports = function serveStatic(host, port, options) {
 			next = function() {}
 		}
 
-		if (req.method !== 'GET' && req.method !== 'HEAD') {
+		if (options.api == false && req.method !== 'GET' && req.method !== 'HEAD') {
 			return next()
 		}
 
