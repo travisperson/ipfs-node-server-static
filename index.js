@@ -3,6 +3,7 @@ var http = require('http')
 var url = require('url')
 var merge = require('utils-merge')
 var path = require('path')
+var httpProxy = require('http-proxy')
 
 exports = module.exports = function serveStatic(host, port, options) {
 	if (!host || !port) {
@@ -13,7 +14,23 @@ exports = module.exports = function serveStatic(host, port, options) {
 		throw new TypeError('host must be a string')
 	}
 
-	var ipfs_local= ipfs(host, port)
+	options        = options || {}
+	options.api    = options.api || false
+	options.errors = options.errors || false
+
+	var ipfs_local = ipfs(host, port)
+	var apiProxy   = undefined;
+
+	if(options.api) {
+		apiProxy = httpProxy.createProxyServer({})
+		apiProxy.on('error', function(err, req, res) {
+			// silence errors
+			// these are almost always disconenct errors
+			if(options.errors) {
+				console.error(err)
+			}
+		})
+	}
 
 	return function serveStatic(req, res, next) {
 
@@ -34,7 +51,12 @@ exports = module.exports = function serveStatic(host, port, options) {
 			p.shift()
 		}
 
-		if (p[0] != "ipfs" || p[1].length < 3) {
+		if(options.api && apiProxy && p[0] == "api") {
+			apiProxy.web(req, res, { target: "http://" + host+ ":" + port})
+			return;
+		}
+
+		if(p[0] != "ipfs" || p[1].length < 3) {
 			return next();
 		}
 

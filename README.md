@@ -10,7 +10,6 @@ npm install ipfs-node-server-static
 
 *Currently only allows no mount point for express*
 
-
 Express
 ```javascript
 var ipfs_static = require('./')('localhost', 5001)
@@ -57,3 +56,7 @@ var server = http.Server(function (req, res) {
   console.log('Example app listening at http://%s:%s', host, port)
 })
 ```
+
+Other options
+
+`api`: true - Enables api pass through via /api/
