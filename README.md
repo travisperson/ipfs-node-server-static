@@ -4,11 +4,12 @@ IPFS Middleware
 Server ipfs objects from `/ipfs/` on a server.
 
 Install
-`npm install ipfs-node-server-static`
+```
+npm install ipfs-node-server-static
+```
 
 *Currently only allows no mount point for express*
 
-Install
 
 Express
 ```javascript

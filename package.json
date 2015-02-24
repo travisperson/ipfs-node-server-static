@@ -10,6 +10,9 @@
     "type": "git",
     "url": "https://github.com/travisperson/ipfs-node-server-static.git"
   },
+  "keywords": [
+    "ipfs"
+  ]
   "author": "Travis Person <travis.person@gmail.com>",
   "license": "MIT",
   "bugs": {

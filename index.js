@@ -5,7 +5,6 @@ var merge = require('utils-merge')
 var path = require('path')
 
 exports = module.exports = function serveStatic(host, port, options) {
-	console.log("Setup")
 	if (!host || !port) {
 		throw new TypeError('host and port required')
 	}
