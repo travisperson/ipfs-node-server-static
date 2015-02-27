@@ -1,7 +1,14 @@
 IPFS Middleware
 ===============
 
-Server ipfs objects from `/ipfs/` on a server.
+Server ipfs objects from `/ipfs/` on a server through the API 
+interface. 
+
+By default only objects are served and actual api access is disabled.
+See other options at the end to enable the API.
+
+If you wish to simply serve static files through the ipfs gateway
+I guess you guys [proxy-middleware](https://www.npmjs.com/package/proxy-middleware)
 
 Install
 ```
@@ -59,4 +66,10 @@ var server = http.Server(function (req, res) {
 
 Other options
 
-`api`: true - Enables api pass through via /api/
+*API*
+By default `ipfs-node-server-static` uses the api to fullfil requests. You
+can enable the pass of `/api/` as well by passing true to the `api` option.
+
+```
+var ipfs_static = require('./')('localhost', 5001, {api: true})
+```
