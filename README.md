@@ -8,7 +8,7 @@ By default only objects are served and actual api access is disabled.
 See other options at the end to enable the API.
 
 If you wish to simply serve static files through the ipfs gateway
-I guess you guys [proxy-middleware](https://www.npmjs.com/package/proxy-middleware)
+I guess you use [proxy-middleware](https://www.npmjs.com/package/proxy-middleware)
 
 Install
 ```
